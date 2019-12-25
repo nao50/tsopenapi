@@ -12,7 +12,12 @@ export class Info {
   license?: OpenAPILicense;
 
 
-  constructor(init?: Partial<OpenAPIInfo>) {
+  constructor(private init?: Partial<OpenAPIInfo>) {
     Object.assign(this, init);
+  }
+
+  validateAll(): Error | null {
+    console.log('HELLO OpenAPIInfo', this.init);
+    return null;
   }
 }

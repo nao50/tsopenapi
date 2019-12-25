@@ -14,8 +14,13 @@ export class Spec {
   externalDocs?: OpenAPIExternalDocumentation;
 
 
-  constructor(init?: Partial<OpenAPISpec>) {
+  constructor(private　init?: Partial<OpenAPISpec>) {
     Object.assign(this, init);
+  }
+
+  validateAll(): Error | null {
+    console.log('HELLO OpenAPISpec', this.init);
+    return null;
   }
 
 }

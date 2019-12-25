@@ -2,6 +2,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import $RefParser from "json-schema-ref-parser";
 import { Spec } from './Spec';
+import { Validate } from './Validate';
 
 export class TSOpenAPI {
 
@@ -9,9 +10,9 @@ export class TSOpenAPI {
   }
 
   /*
-   * validate is cast string to OpenAPISpec types 
+   * parse and validate entrypoint
    */
-  validate(filePath: string, callback: (err: NodeJS.ErrnoException | null, data: Spec) => void): void {
+  loadSpec(filePath: string, callback: (err: NodeJS.ErrnoException | null, data: Spec) => void): void {
 
     const openAPISpec = yaml.safeLoad(fs.readFileSync(filePath, 'utf8'));
 
@@ -21,10 +22,14 @@ export class TSOpenAPI {
       } else {
         const spec = new Spec(resolvedSpec);
         // validation
-        if (spec.openapi === undefined) {
-          callback(err, null);
-          throw new Error('Document must be valid OpenAPI 3.0.0 definition');
-        };
+        new Validate().validateAll();
+
+        // if (spec.openapi === undefined) {
+        //   err = new Error('Document must be valid OpenAPI 3.0.0 definition');
+        //   callback(err, null);
+        // };
+        
+
         callback(null, spec);
       }
     });
