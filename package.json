@@ -1,0 +1,49 @@
+{
+  "name": "tsopenapi",
+  "version": "1.0.0",
+  "description": "Typescript OpenAPI parser and validator",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack && node dist/index.js",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(js?|ts?)$",
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naoyamaguchi/tsopenapi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naoyamaguchi/tsopenapi/issues"
+  },
+  "homepage": "https://github.com/naoyamaguchi/tsopenapi#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.24",
+    "@types/js-yaml": "^3.12.1",
+    "@types/node": "^13.1.0",
+    "jest": "^24.9.0",
+    "js-yaml": "^3.13.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}
