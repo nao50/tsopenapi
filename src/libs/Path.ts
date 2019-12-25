@@ -1,4 +1,4 @@
-import { OpenAPIPath, OpenAPIOperation, OpenAPIServer, Referenced, OpenAPIParameter } from '../types';
+import { OpenAPIPath, OpenAPIOperation, OpenAPIServer, OpenAPIParameter } from '../types';
 
 /*
  * OpenAPIPath
@@ -15,7 +15,7 @@ export class Path {
   patch?: OpenAPIOperation;
   trace?: OpenAPIOperation;
   servers?: OpenAPIServer[];
-  parameters?: Array<Referenced<OpenAPIParameter>>;
+  parameters?: OpenAPIParameter[];
 
   constructor(init?: Partial<OpenAPIPath>) {
     Object.assign(this, init);

@@ -1,4 +1,4 @@
-import { OpenAPISchema, OpenAPIExternalDocumentation, OpenAPIDiscriminator, OpenAPIRef } from '../types';
+import { OpenAPISchema, OpenAPIExternalDocumentation, OpenAPIDiscriminator } from '../types';
 
 /*
  * OpenAPISchema
@@ -41,19 +41,7 @@ export class Schema {
   example?: any;
 
   constructor(init?: Partial<OpenAPISchema>) {
-    console.log('init.items: ', init.items);
-
-    // Object.keys(init.items).forEach(() => {
-    //   console.log('init.items: ', init.items);
-    // });
-
     Object.assign(this, init);
   }
 
-  isRef(obj: any): obj is OpenAPIRef {
-    if (!obj) {
-      return false;
-    }
-    return obj.$ref !== undefined && obj.$ref !== null;
-  }
 }

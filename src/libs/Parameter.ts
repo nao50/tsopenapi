@@ -1,4 +1,4 @@
-import { OpenAPIParameter, OpenAPIParameterLocation, OpenAPIParameterStyle, Referenced, OpenAPISchema, OpenAPIExample, OpenAPIMediaType } from '../types';
+import { OpenAPIParameter, OpenAPIParameterLocation, OpenAPIParameterStyle, OpenAPISchema, OpenAPIExample, OpenAPIMediaType } from '../types';
 
 /*
  * OpenAPIParameter
@@ -13,9 +13,9 @@ export class Parameter {
   style?: OpenAPIParameterStyle;
   explode?: boolean;
   allowReserved?: boolean;
-  schema?: Referenced<OpenAPISchema>;
+  schema?: OpenAPISchema;
   example?: any;
-  examples?: { [media: string]: Referenced<OpenAPIExample> };
+  examples?: { [media: string]: OpenAPIExample };
   content?: { [media: string]: OpenAPIMediaType };
 
 
